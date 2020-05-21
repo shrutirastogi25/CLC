@@ -9,6 +9,7 @@ import HomeScreen from './src/Home/Home';
 import RegistrationScreen from './src/Login/Registration';
 import ResetPassword from './src/Login/ResetPassword';
 import ProfileScreen from './src/Profile/ProfileScreen';
+import Color from './src/Utils/Color';
 
 const Stack = createStackNavigator();
 
@@ -30,7 +31,19 @@ function App() {
           name="RegistrationScreen"
           component={RegistrationScreen}
         />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{
+            title: 'Home',
+            headerTitleAlign: 'center',
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: Color.Header,
+            },
+            headerTintColor: Color.White,
+          }}
+        />
         <Stack.Screen
           options={{headerShown: false}}
           name="ProfileScreen"
