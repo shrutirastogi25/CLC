@@ -31,7 +31,7 @@ export default class SplashScreen extends Component {
         />
         <Image
           style={{}}
-          source={require('../Assets/AppLogo.png')}
+          source={require('../Assets/CLC.jpg')}
           resizeMode="contain"
         />
       </View>
