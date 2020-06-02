@@ -10,6 +10,7 @@ import RegistrationScreen from './src/Login/Registration';
 import ResetPassword from './src/Login/ResetPassword';
 import ProfileScreen from './src/Profile/ProfileScreen';
 import Color from './src/Utils/Color';
+import MyWebComponent from './src/Profile/MyWebComponent';
 
 const Stack = createStackNavigator();
 
@@ -49,6 +50,12 @@ function App() {
           name="ProfileScreen"
           component={ProfileScreen}
         />
+                <Stack.Screen
+          options={{headerShown: false}}
+          name="MyWebComponent"
+          component={MyWebComponent}
+        />
+        
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
       </Stack.Navigator>
     </NavigationContainer>

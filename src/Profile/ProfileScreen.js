@@ -17,7 +17,7 @@ export default class ProfileScreen extends Component {
   }
   componentDidMount() {}
   onClickListener = () => {
-    this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
+    this.props.navigation.dispatch(StackActions.replace('MyWebComponent'));
   };
 
   click = obj1 => {
