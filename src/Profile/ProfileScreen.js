@@ -16,88 +16,31 @@ export default class ProfileScreen extends Component {
     super(props);
   }
   componentDidMount() {}
-  onClickListener = () => {
-    this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
+  
+    onClickListener = viewId => {
+       if (viewId === 'profile') {
+        this.props.navigation.dispatch(StackActions.replace('Profile'));
+      } else if (viewId === 'notifications') {
+        this.props.navigation.dispatch(StackActions.replace('Notification'));
+      }
+      else if(viewId==='offer'){
+        this.props.navigation.dispatch(StackActions.replace('Offers'));
+      }
   };
 
-  click = obj1 => {
-    console.log('color = ' + obj1);
-  };
-  // width: '100%', position: 'absolute', bottom: 0, alignItems: 'center', justifyContent: 'center', height: 50, flexDirection: 'row'
   render() {
     return (
-      <View style={{flex: 1}}>
-        <TouchableOpacity
-          onPress={() => this.click('Red')}
-          style={{flex: 2, backgroundColor: Color.Red}}
-        />
-        <TouchableOpacity
-          onPress={() => this.click('Green')}
-          style={{
-            flex: 3,
-            backgroundColor: Color.Green,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <View style={{elevation: 50}}>
-            <TouchableHighlight
-              style={[styles.buttonContainer, styles.loginButton]}
-              onPress={() => this.onClickListener()}>
-              <Text>Dhruv</Text>
-            </TouchableHighlight>
-          </View>
-        </TouchableOpacity>
-        <View style={{flex: 4, flexDirection: 'row'}}>
-          <View style={{flex: 1}}>
-            <TouchableOpacity
-              onPress={() => this.click('Silver')}
-              style={{flex: 1, backgroundColor: Color.Silver}}
-            />
-            <TouchableOpacity
-              onPress={() => this.click('Black')}
-              style={{flex: 1, backgroundColor: Color.Black}}
-            />
-          </View>
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <View style={{flex: 1}}>
-              <TouchableOpacity
-                onPress={() => this.click('Red')}
-                style={{flex: 1, backgroundColor: Color.Red}}
-              />
-              <TouchableOpacity
-                onPress={() => this.click('Grey')}
-                style={{flex: 1, backgroundColor: Color.Gray}}
-              />
-              <TouchableOpacity
-                onPress={() => this.click('Green')}
-                style={{flex: 1, backgroundColor: Color.Green}}
-              />
-              <TouchableOpacity
-                onPress={() => this.click('Red')}
-                style={{flex: 1, backgroundColor: Color.Red}}
-              />
-            </View>
-            <View style={{flex: 1, flexDirection: 'row'}}>
-              <TouchableOpacity
-                onPress={() => this.click('Black')}
-                style={{flex: 1, backgroundColor: Color.Black}}
-              />
-              <TouchableOpacity
-                onPress={() => this.click('Grey')}
-                style={{flex: 1, backgroundColor: Color.Gray}}
-              />
-              <TouchableOpacity
-                onPress={() => this.click('Green')}
-                style={{flex: 1, backgroundColor: Color.Green}}
-              />
-              <TouchableOpacity
-                onPress={() => this.click('Dark Green')}
-                style={{flex: 1, backgroundColor: Color.Dark_Green}}
-              />
-            </View>
-          </View>
+      <View style={{flex:5}}>
+        <View style={{flex:4}}>
+        <Text>LIST</Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+          <TouchableOpacity onPress={() => this.onClickListener('offer')} style={{flex:1, backgroundColor:'red'}}></TouchableOpacity>
+          <TouchableOpacity onPress={() => this.onClickListener('profile')} style={{flex:1, backgroundColor:'green'}}></TouchableOpacity>
+          <TouchableOpacity onPress={() => this.onClickListener('notifications')} style={{flex:1, backgroundColor:'blue'}}></TouchableOpacity>
         </View>
       </View>
+     
     );
   }
 }
