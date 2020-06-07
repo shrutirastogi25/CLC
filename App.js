@@ -52,12 +52,11 @@ function App() {
           name="ProfileScreen"
           component={ProfileScreen}
         />
-        
+
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
-        <Stack.Screen name="Profile" component={Profile}/>
-        <Stack.Screen name="Notification" component={Notification}/>
-        <Stack.Screen name="Offers" component={Offers}/>
-        
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Notification" component={Notification} />
+        <Stack.Screen name="Offers" component={Offers} />
       </Stack.Navigator>
     </NavigationContainer>
   );
