@@ -4,7 +4,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableHighlight,
+  TouchableOpacity,
   Image,
 } from 'react-native';
 import {StackActions} from '@react-navigation/native';
@@ -51,22 +51,20 @@ export default class Login extends Component {
           />
         </View>
 
-        <TouchableHighlight
+        <TouchableOpacity
           style={[styles.buttonContainer, styles.loginButton]}
           onPress={() => this.onClickListener('login')}>
           <Text style={styles.loginText}>Login</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
-        <TouchableHighlight
+        <TouchableOpacity
           onPress={() => this.onClickListener('restore_password')}>
           <Text>Forgot your password?</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
-        <TouchableHighlight
-          style={styles.buttonContainer}
-          onPress={() => this.onClickListener('register')}>
+        <TouchableOpacity onPress={() => this.onClickListener('register')}>
           <Text>Register</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -110,6 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
+    elevation: 5,
   },
   loginButton: {
     backgroundColor: '#00b5ec',
