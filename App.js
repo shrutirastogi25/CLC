@@ -9,9 +9,6 @@ import HomeScreen from './src/Home/Home';
 import RegistrationScreen from './src/Login/Registration';
 import ResetPassword from './src/Login/ResetPassword';
 import ProfileScreen from './src/Profile/ProfileScreen';
-import Profile from './src/Profile/Profile';
-import Notification from './src/Profile/Notification';
-import Offers from './src/Profile/Offers';
 import Color from './src/Utils/Color';
 
 const Stack = createStackNavigator();
@@ -54,9 +51,6 @@ function App() {
         />
 
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Notification" component={Notification} />
-        <Stack.Screen name="Offers" component={Offers} />
       </Stack.Navigator>
     </NavigationContainer>
   );
