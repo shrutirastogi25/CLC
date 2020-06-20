@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -11,6 +11,18 @@ export default class ProfileScreen extends Component {
   constructor(props) {
     super(props);
   }
+
+  onClickListener = viewId => {
+    if (viewId === 'home') {
+      this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
+    } else if (viewId === 'login') {
+      this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
+    } else if (viewId === 'profile') {
+      this.props.navigation.dispatch(StackActions.replace('ProfileScreen'));
+    } else if (viewId === 'settings') {
+      this.props.navigation.dispatch(StackActions.replace('Settings'));
+    }
+  };
 
   componentDidMount() {}
   goBack = () => {
@@ -215,7 +227,8 @@ export default class ProfileScreen extends Component {
                   alignItems: 'center',
                   left: 10,
                   padding: 10,
-                }}>
+                }}
+                onPress={() => this.onClickListener('settings')}>
                 <Ionicons
                   style={{elevation: 7, marginRight: 10}}
                   size={20}
@@ -232,7 +245,25 @@ export default class ProfileScreen extends Component {
                   left: 10,
                   padding: 10,
                   marginTop: 10,
-                }}>
+                }}
+                onPress={() =>
+                  Alert.alert(
+                    'Logout?',
+                    'Do you really want to log out?',
+                    [
+                      {
+                        text: 'Yes',
+                        onPress: () => this.onClickListener('login'),
+                        style: 'cancel',
+                      },
+                      {
+                        text: 'No',
+                        onPress: () => this.onClickListener('profile'),
+                      },
+                    ],
+                    {cancelable: false},
+                  )
+                }>
                 <Ionicons
                   style={{elevation: 7, marginRight: 10, color: 'red'}}
                   size={20}
