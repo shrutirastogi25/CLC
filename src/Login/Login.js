@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,8 +6,11 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  ScrollView,
+  SafeAreaView
 } from 'react-native';
-import {StackActions} from '@react-navigation/native';
+import { StackActions } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 export default class Login extends Component {
@@ -29,88 +32,94 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} />
-          <TextInput
-            style={styles.inputs}
-            placeholder="Email"
-            keyboardType="email-address"
-            underlineColorAndroid="transparent"
-            onChangeText={email => this.setState({email})}
-          />
-        </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+        <ScrollView style={{ flex: 1 }}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Image source={require('../Assets/final_logo.png')} />
+          </View>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{
+              borderBottomColor: '#606060',
+              backgroundColor: '#FFFFFF',
+              borderRadius: 30,
+              borderBottomWidth: 1,
+              width: 250,
+              height: 45,
+              marginBottom: 20,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+              <Ionicons
+                style={{ alignItems: 'flex-start' }}
+                size={20}
+                name={'md-mail'}
+              />
+              <TextInput
+                style={{
+                  height: 45,
+                  marginLeft: 16,
+                  borderBottomColor: '#FFFFFF',
+                  flex: 1
+                }}
+                placeholder="Email"
+                keyboardType="email-address"
+                underlineColorAndroid="transparent"
+                onChangeText={email => this.setState({ email })}
+              />
+            </View>
 
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} />
-          <TextInput
-            style={styles.inputs}
-            placeholder="Password"
-            secureTextEntry={true}
-            underlineColorAndroid="transparent"
-            onChangeText={password => this.setState({password})}
-          />
-        </View>
+            <View style={{
+              borderBottomColor: '#606060',
+              backgroundColor: '#FFFFFF',
+              borderRadius: 30,
+              borderBottomWidth: 1,
+              width: 250,
+              height: 45,
+              marginBottom: 20,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+              <Ionicons
 
-        <TouchableOpacity
-          style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.onClickListener('login')}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
+                size={20}
+                name={'md-key'}
+              />
+              <TextInput
+                style={{
+                  height: 45,
+                  marginLeft: 16,
+                  borderBottomColor: '#FFFFFF',
+                  flex: 1
+                }}
+                placeholder="Password"
+                secureTextEntry={true}
+                underlineColorAndroid="transparent"
+                onChangeText={password => this.setState({ password })}
+              />
+            </View>
+            <TouchableOpacity
+              onPress={() => this.onClickListener('login')}>
+              <Text>Login</Text>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => this.onClickListener('restore_password')}>
-          <Text>Forgot your password?</Text>
-        </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.onClickListener('restore_password')}>
+              <Text>Forgot your password?</Text>
+            </TouchableOpacity>
+          </View>
 
+        </ScrollView>
+        <View style={{alignItems:'center',justifyContent:'center',bottom:2}}>
         <TouchableOpacity onPress={() => this.onClickListener('register')}>
-          <Text>Register</Text>
-        </TouchableOpacity>
-      </View>
+              <Text>Sign up?</Text>
+            </TouchableOpacity>
+        </View>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#DCDCDC',
-  },
-  inputContainer: {
-    borderBottomColor: '#F5FCFF',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 30,
-    borderBottomWidth: 1,
-    width: 250,
-    height: 45,
-    marginBottom: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  inputs: {
-    height: 45,
-    marginLeft: 16,
-    borderBottomColor: '#FFFFFF',
-    flex: 1,
-  },
-  inputIcon: {
-    width: 30,
-    height: 30,
-    marginLeft: 15,
-    justifyContent: 'center',
-  },
-  buttonContainer: {
-    height: 45,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-    width: 250,
-    borderRadius: 30,
-    elevation: 5,
-  },
   loginButton: {
     backgroundColor: '#00b5ec',
   },
